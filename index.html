@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+<center><form action="" id="frm">
+    <input type="text" id="ip" placeholder="add a todo">
+    <input type="submit" id="bt" value="add">
+</form></center>
+<ul id="list">
+    <div class="ww"></div>
+</ul>
+
+<script>
+    let f = document.getElementById("frm");
+    f.style.backgroundColor="rgb(251, 127, 127)";
+    f.style.padding="30px";
+    let ip=document.getElementById("ip");
+    ip.style.borderRadius="5px";
+    ip.style.border="1px solid black";
+
+
+
+    let bt=document.getElementById("bt");
+    bt.style.borderRadius="5px";
+    bt.style.border="1px solid black";
+    let list=document.getElementById("list");
+    f.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        list.style.border="1px solid transprent";
+        list.style.display="flex";
+        list.style.flexDirection="column";
+
+
+
+        let listItem=document.createElement("li");
+        listItem.innerText=ip.value;
+        listItem.style.display="flex";
+        listItem.style.justifyContent="space-between";
+        listItem.style.alignItems="center";
+        listItem.style.border=" 1px solid ";
+        listItem.style.backgroundColor="lightgreen";
+        listItem.style.borderRadius="10px"
+        listItem.style.height="40px";
+        listItem.style.margin="10px 0px";
+        listItem.style.width="90vw";
+        listItem.style.padding="10px";
+        
+        var ab=document.createElement("input");
+        ab.type="submit";
+        ab.value="remove";
+        ab.innerText="x";
+        ab.style.cursor="pointer";
+        ab.style.backgroundColor="rgb(251, 127, 127)";
+        ab.style.color="black";
+      
+        ab.style.width="60px";
+        listItem.appendChild(ab);
+        
+        ab.addEventListener("click", () => {
+            listItem.remove();
+            ab.style.display="none";
+        });
+        list.appendChild(listItem);
+        
+        ip.value=""
+    });
+    
+</script>
+</body>
+</html>
