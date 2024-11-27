@@ -60,8 +60,26 @@
         ab.style.backgroundColor="rgb(251, 127, 127)";
         ab.style.color="black";
       
-        ab.style.width="60px";
+
+        var ab1=document.createElement("button");
+        
+        ab1.value="edit";
+        ab1.innerText="Edit";
+        ab1.style.cursor="pointer";
+        ab1.style.backgroundColor="rgb(251, 127, 127)";
+        ab1.style.color="black";
+        ab1.style.width="60px";
+
         listItem.appendChild(ab);
+        listItem.appendChild(ab1);
+
+        ab1.addEventListener("click",()=>{
+            // list.contentEditable(listItem);
+            // listItem.appendChild(ab);
+            // listItem.style.display="none";
+            ip.value=listItem.innerText;
+            listItem.style.display="none";
+        })
         
         ab.addEventListener("click", () => {
             listItem.remove();
